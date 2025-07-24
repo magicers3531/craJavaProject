@@ -1,6 +1,7 @@
 package mission2.buildstate;
 
 import mission2.Context;
+import mission2.enums.SteeringSystem;
 
 public class SteeringBuildState implements BuildState {
     @Override
@@ -22,7 +23,7 @@ public class SteeringBuildState implements BuildState {
             context.setState(new SteeringBuildState());
         }
         else{
-            String steering = userInput == 1 ? "Bosch" : "Mobis";
+            SteeringSystem steering = userInput == 1 ?  SteeringSystem.Bosch : SteeringSystem.Mobis;
             System.out.printf("%s 조향장치를 선택하셨습니다.\n", steering);
             context.builder.steering(steering);
             context.delay(800);

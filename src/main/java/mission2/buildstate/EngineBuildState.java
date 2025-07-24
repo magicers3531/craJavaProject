@@ -1,6 +1,7 @@
 package mission2.buildstate;
 
 import mission2.Context;
+import mission2.enums.EngineType;
 
 public class EngineBuildState implements BuildState {
     @Override
@@ -22,7 +23,7 @@ public class EngineBuildState implements BuildState {
             context.setState(new EngineBuildState());
         }
         else{
-            String engine = userInput == 1 ? "GM" : userInput == 2 ? "TOYOTA" : userInput == 3 ? "WIA" : "고장난 엔진";
+            EngineType engine = userInput == 1 ? EngineType.GM : userInput == 2 ? EngineType.TOYOTA : userInput == 3 ? EngineType.WIA : EngineType.NotWork;
             System.out.printf("%s 엔진을 선택하셨습니다.\n", engine);
             context.builder.engine(engine);
             context.delay(800);

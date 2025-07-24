@@ -1,27 +1,32 @@
 package mission2;
 
-public class CarBuilder {
-    String type;
-    String engine;
-    String breakSystem;
-    String steering;
+import mission2.enums.BreakSystem;
+import mission2.enums.CarType;
+import mission2.enums.EngineType;
+import mission2.enums.SteeringSystem;
 
-    public CarBuilder type(String type){
+public class CarBuilder {
+    CarType type;
+    EngineType engine;
+    BreakSystem breakSystem;
+    SteeringSystem steering;
+
+    public CarBuilder type(CarType type){
         this.type = type;
         return this;
     }
 
-    public CarBuilder engine(String engine){
+    public CarBuilder engine(EngineType engine){
         this.engine = engine;
         return this;
     }
 
-    public CarBuilder breakSystem(String breakSystem){
+    public CarBuilder breakSystem(BreakSystem breakSystem){
         this.breakSystem = breakSystem;
         return this;
     }
 
-    public CarBuilder steering(String steering){
+    public CarBuilder steering(SteeringSystem steering){
         this.steering = steering;
         return this;
     }

@@ -2,6 +2,10 @@ import mission2.Car;
 import mission2.CarBuilder;
 import mission2.Context;
 import mission2.buildstate.CarTypeBuildState;
+import mission2.enums.BreakSystem;
+import mission2.enums.CarType;
+import mission2.enums.EngineType;
+import mission2.enums.SteeringSystem;
 import mission2.validator.*;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -34,10 +38,10 @@ class CarBuilderTest {
     @Test
     void Builder_기본_테스트() {
         Car car = new CarBuilder()
-                .type("Sedan")
-                .engine("TOYOTA")
-                .breakSystem("Mando")
-                .steering("Bosch")
+                .type(CarType.Sedan)
+                .engine(EngineType.TOYOTA)
+                .breakSystem(BreakSystem.Mando)
+                .steering(SteeringSystem.Bosch)
                 .build();
 
         assertNotNull(car);
@@ -336,10 +340,10 @@ class CarBuilderTest {
     @Test
     void sedan_validatorTest() {
         Car car = new CarBuilder()
-                .type("Sedan")
-                .engine("TOYOTA")
-                .breakSystem("Continental")
-                .steering("Bosch")
+                .type(CarType.Sedan)
+                .engine(EngineType.TOYOTA)
+                .breakSystem(BreakSystem.Continental)
+                .steering(SteeringSystem.Bosch)
                 .build();
 
         Validator v = new SedanBreakValidator();
@@ -350,10 +354,10 @@ class CarBuilderTest {
     @Test
     void SUV_validatorTest() {
         Car car = new CarBuilder()
-                .type("SUV")
-                .engine("TOYOTA")
-                .breakSystem("Continental")
-                .steering("Bosch")
+                .type(CarType.SUV)
+                .engine(EngineType.TOYOTA)
+                .breakSystem(BreakSystem.Continental)
+                .steering(SteeringSystem.Bosch)
                 .build();
 
         Validator v = new SuvEngineValidator();
@@ -364,10 +368,10 @@ class CarBuilderTest {
     @Test
     void truck_break_validatorTest() {
         Car car = new CarBuilder()
-                .type("Truck")
-                .engine("TOYOTA")
-                .breakSystem("MANDO")
-                .steering("Bosch")
+                .type(CarType.Truck)
+                .engine(EngineType.TOYOTA)
+                .breakSystem(BreakSystem.Mando)
+                .steering(SteeringSystem.Bosch)
                 .build();
 
         Validator v = new TruckBreakValidator();
@@ -378,10 +382,10 @@ class CarBuilderTest {
     @Test
     void truck_engine_validatorTest() {
         Car car = new CarBuilder()
-                .type("Truck")
-                .engine("WIA")
-                .breakSystem("MANDO")
-                .steering("Bosch")
+                .type(CarType.Truck)
+                .engine(EngineType.WIA)
+                .breakSystem(BreakSystem.Mando)
+                .steering(SteeringSystem.Bosch)
                 .build();
 
         Validator v = new TruckEngineValidator();
@@ -392,10 +396,10 @@ class CarBuilderTest {
     @Test
     void bosch_validatorTest() {
         Car car = new CarBuilder()
-                .type("Truck")
-                .engine("WIA")
-                .breakSystem("Bosch")
-                .steering("Mobis")
+                .type(CarType.Truck)
+                .engine(EngineType.WIA)
+                .breakSystem(BreakSystem.Bosch)
+                .steering(SteeringSystem.Mobis)
                 .build();
 
         Validator v = new BoschBreakValidator();

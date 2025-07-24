@@ -1,6 +1,7 @@
 package mission2.buildstate;
 
 import mission2.Context;
+import mission2.enums.CarType;
 
 public class CarTypeBuildState implements BuildState {
 
@@ -21,8 +22,8 @@ public class CarTypeBuildState implements BuildState {
             context.setState(new CarTypeBuildState());
         }
         else{
-            String carType = userInput == 1 ? "Sedan" :
-                             userInput == 2 ? "SUV" : "Truck";
+            CarType carType = userInput == 1 ? CarType.Sedan:
+                             userInput == 2 ?  CarType.SUV : CarType.Truck;
             System.out.printf("차량 타입으로 %s을 선택하셨습니다.\n", carType);
             context.builder.type(carType);
             context.delay(800);

@@ -1,6 +1,7 @@
 package mission2.buildstate;
 
 import mission2.Context;
+import mission2.enums.BreakSystem;
 
 public class BreakBuildState implements BuildState {
     @Override
@@ -23,8 +24,8 @@ public class BreakBuildState implements BuildState {
             context.setState(new BreakBuildState());
         }
         else{
-            String breakSystem = userInput == 1 ? "Mando" :
-                               userInput == 2 ? "Continental" : "Bosch";
+            BreakSystem breakSystem = userInput == 1 ? BreakSystem.Mando:
+                               userInput == 2 ? BreakSystem.Continental : BreakSystem.Bosch;
             System.out.printf("%s 제동장치를 선택하셨습니다.\n", breakSystem);
             context.builder.breakSystem(breakSystem);
             context.delay(800);

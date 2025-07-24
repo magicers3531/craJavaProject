@@ -1,34 +1,39 @@
 package mission2;
 
+import mission2.enums.BreakSystem;
+import mission2.enums.CarType;
+import mission2.enums.EngineType;
+import mission2.enums.SteeringSystem;
+
 public class Car {
-    String type;
-    String engine;
-    String breakSystem;
-    String steering;
+    CarType type;
+    EngineType engine;
+    BreakSystem breakSystem;
+    SteeringSystem steering;
     boolean workEngine;
 
-    public Car(String type, String engine, String breakSystem, String steering) {
+    public Car(CarType type, EngineType engine, BreakSystem breakSystem, SteeringSystem steering) {
         this.type = type;
         this.engine = engine;
-        workEngine = !this.engine.equals("고장난 엔진");
+        workEngine = !this.engine.label().equals("고장난 엔진");
         this.breakSystem = breakSystem;
         this.steering = steering;
     }
 
     public String getType() {
-        return type;
+        return type.label();
     }
 
     public String getEngine() {
-        return engine;
+        return engine.label();
     }
 
     public String getBreakSystem() {
-        return breakSystem;
+        return breakSystem.label();
     }
 
     public String getSteering() {
-        return steering;
+        return steering.label();
     }
 
     public boolean isWorkEngine(){
@@ -37,9 +42,9 @@ public class Car {
 
     @Override
     public String toString(){
-        return "Car Type : " + type + "\n" +
-               "Engine   : " + engine + "\n" +
-               "Brake    : " + breakSystem + "\n" +
-               "Steering : " + steering;
+        return "Car Type : " + type.label() + "\n" +
+               "Engine   : " + engine.label() + "\n" +
+               "Brake    : " + breakSystem.label() + "\n" +
+               "Steering : " + steering.label();
     }
 }
